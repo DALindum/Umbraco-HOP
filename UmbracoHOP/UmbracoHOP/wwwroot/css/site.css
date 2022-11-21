@@ -1,0 +1,69 @@
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+/* Umbraco #3544B1 */
+body{
+  margin: 0;
+  padding: 0;
+}
+
+/* NAVIGATION BAR */
+.topnav img{
+  height: 15%;
+  width: 15%;
+}
+
+.topnav-right img{
+  height: 30%;
+  width: 30%;
+  margin-top: 10%;
+}
+
+.topnav-right ul{
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.topnav-right ul li{
+  display: inline;
+}
+
+/* Style the links inside the navigation bar */
+.topnav a {
+  float: left;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+  margin-top: 20%;
+}
+
+/* Change the color of links on hover */
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+/* Add a color to the active/current link */
+.topnav a.active {
+  background-color: #04AA6D;
+  color: white;
+}
+
+/* Right-aligned section inside the top navigation */
+.topnav-right {
+  float: right;
+}
