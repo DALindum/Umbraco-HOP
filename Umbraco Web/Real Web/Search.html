@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/CSS/Search.css">
+    <title>Document</title>
+</head>
+    <body>
+        <!-- NAVIGATION BAR -->
+        <div class="topnav">
+            <img src="/Images/umbraco_logo_blue05.png" alt="">
+            <div class="topnav-right">
+            <a href="/Real Web/TotalStats.html">Home</a>
+            <a href="/Advanced/Advanced.html">Advanced</a>
+            <a href="/Real Web/Search.html">Search</a>
+            <img src="/Images/profile_icon.png" alt="">
+            </div>
+        </div>
+
+        <!-- SEARCH BAR -->
+        <div class="search_row">
+            <div class="search_box">
+                <select name="filter_search_box" class="filter_search_box">
+                    <option class="noSearch" value=""></option>
+                    <option class="Country" value="Country">Country</option>
+                    <option class="City" value="City">City</option>
+                    <option class="Continent" value="Continent">Continent</option>
+                    <option class="Versions" value="Versions">Versions</option>
+                    <option class="Packages" value="Packages">Packages</option>
+                    <option class="Instances" value="Instances">Instances</option>
+                </select>
+            </div>
+
+            <div class="SearchFromDateText">
+                <p>Start Date: </p>
+            </div>
+
+            <div class="SearchFromDateBtn">
+                <input class="DateFrom" type="date">
+            </div>
+
+
+            <div class="SearchToDateText">
+                <p>End Date: </p>
+            </div>
+
+            <div class="SearchToDateBtn">
+                <input class="DateFrom" type="date">
+            </div>
+
+            <div class="SearchText">
+                <input class="searchTextText" type="text" placeholder="Search Text">
+            </div>
+
+            <div class="SearchButton">
+                <input type="submit" value="Search"/>
+            </div>
+
+            <div class="SearchExport">
+                <input type="submit" value="Export"/>
+            </div>
+        </div>
+
+        <!-- INFO BOX -->
+        <div class="info_box">
+            <div class="box">
+                <h2>Total Instances</h2>
+                <hr>
+            </div>
+        </div>
+
+        <div class="spacer">
+            <hr>
+        </div>
+
+        <div class="DataArea">
+            <p class="DataAreaContinent">Continent↓</p>
+            <p class="DataAreaCountry">Country↓</p>
+            <p class="DataAreaCity">City↓</p>
+            <p class="DataAreaVersion">Version↓</p>
+            <p class="DataAreaPackages">Packages↓</p>
+            <p class="DataAreaInstances">Instances↓</p>
+        </div>
+
+        <div class="DataAreaText">
+            <p class="DataAreaTextContinent">EU</p>
+            <p class="DataAreaTextCountry">DK</p>
+            <p class="DataAreaTextCity">Odense</p>
+            <p class="DataAreaTextVersion">10.0.0</p>
+            <p class="DataAreaTextPackages">12</p>
+            <p class="DataAreaTextInstances">1</p>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/CSS/Homepage.css">
+    <title>Umbraco Stats</title>
+</head>
+<body>
+
+    <!-- NAVIGATION BAR -->
+    <div class="topnav">
+        <img src="/Images/umbraco_logo_blue05.png" alt="">
+        <div class="topnav-right">
+          <a href="#">Home</a>
+          <a href="#">Advanced</a>
+          <img src="/Images/profile_icon.png" alt="">
+        </div>
+    </div>
+
+    <!-- INFO BOXES -->
+    <div class="container">
+        <div class="box">
+            <h2>Total Instances</h2>
+            <hr>
+        </div>
+        <div class="box">
+            <h2>Total Countries using Umbraco</h2>
+            <hr>
+        </div>
+        <div class="box">
+            <h2>Users using latest Umbraco Version</h2>
+            <hr>
+        </div>
+    </div>
+
+    <!-- Spacer between boxes and search -->
+    <div class="spacer">
+        <hr>
+    </div>
+
+    <!-- Search Text -->
+    <div class="searchTextBox">
+        <p class="searchAllSpecificBox">Search</p>
+        <p class="searchFilterBox">Filter</p>
+        <p class="searchDateFrom">Date From</p>
+        <p class="searchDateTo">Date To</p>
+        <p class="searchText"s>Search Text</p>
+    </div>
+
+    <!-- Search -->
+    <div class="search">
+        <select name="searchAllSpecific" class="searchAllSpecific">
+            <option class="noSearch" value=""></option>
+            <option class="all" value="All">All</option>
+            <option class="specific" value="Specific">Specific</option>
+        </select>
+        <select name="Filter" class="searchFilter">
+            <option class="noFilter" value=""></option>
+            <option class="Country" value="Country">Country</option>
+            <option class="City" value="City">City</option>
+            <option class="Continent" value="Continent">Continent</option>
+            <option class="Versions" value="Versions">Versions</option>
+            <option class="Packages" value="Packages">Packages</option>
+            <option class="Instances" value="Instances">Instances</option>
+        </select>
+        <input class="DateFrom" type="date">
+        <input class="DateTo" type="date">
+        <input class="searchTextText" type="text" placeholder="Search Text">
+        <button class="searchButton">Search</button>
+    </div>
+
+    <div class="infoBox">
+        <p class="infoBoxContinent">Continent↓</p>
+        <p class="infoBoxCountry">Country↓</p>
+        <p class="infoBoxCity">City↓</p>
+        <p class="infoBoxVersion">Version↓</p>
+        <p class="infoBoxPackages">Packages↓</p>
+        <p class="infoBoxInstances">Instances↓</p>
+    </div>
+
+    <div class="boxInfoText">
+        <p class="boxInfoTextContinent">EU</p>
+        <p class="boxInfoTextCountry">DK</p>
+        <p class="boxInfoTextCity">Odense</p>
+        <p class="boxInfoTextVersion">10.0.0</p>
+        <p class="boxInfoTextPackages">12</p>
+        <p class="boxInfoTextInstances">1</p>
+    </div>
+</body>
+</html>
