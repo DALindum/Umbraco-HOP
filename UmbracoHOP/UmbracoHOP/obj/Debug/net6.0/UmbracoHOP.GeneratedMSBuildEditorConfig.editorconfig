@@ -8,49 +8,49 @@ build_property.PlatformNeutralAssembly =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = UmbracoHOP
 build_property.RootNamespace = UmbracoHOP
-build_property.ProjectDir = C:\Users\Daniel\RiderProjects\UmbracoHOP\UmbracoHOP\
+build_property.ProjectDir = C:\Users\Daniel\RiderProjects\Umbraco-HOP\UmbracoHOP\UmbracoHOP\
 build_property.RazorLangVersion = 6.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = C:\Users\Daniel\RiderProjects\UmbracoHOP\UmbracoHOP
+build_property.MSBuildProjectDirectory = C:\Users\Daniel\RiderProjects\Umbraco-HOP\UmbracoHOP\UmbracoHOP
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/Users/Daniel/RiderProjects/UmbracoHOP/UmbracoHOP/Views/Advanced/Advanced.cshtml]
+[C:/Users/Daniel/RiderProjects/Umbraco-HOP/UmbracoHOP/UmbracoHOP/Views/Advanced/Advanced.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWR2YW5jZWRcQWR2YW5jZWQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Daniel/RiderProjects/UmbracoHOP/UmbracoHOP/Views/Home/Homepage.cshtml]
+[C:/Users/Daniel/RiderProjects/Umbraco-HOP/UmbracoHOP/UmbracoHOP/Views/Home/Homepage.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxIb21lcGFnZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Daniel/RiderProjects/UmbracoHOP/UmbracoHOP/Views/Login/Login.cshtml]
+[C:/Users/Daniel/RiderProjects/Umbraco-HOP/UmbracoHOP/UmbracoHOP/Views/Login/Login.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTG9naW5cTG9naW4uY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Daniel/RiderProjects/UmbracoHOP/UmbracoHOP/Views/Profile/Profile.cshtml]
+[C:/Users/Daniel/RiderProjects/Umbraco-HOP/UmbracoHOP/UmbracoHOP/Views/Profile/Profile.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZmlsZVxQcm9maWxlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Daniel/RiderProjects/UmbracoHOP/UmbracoHOP/Views/Search/Search.cshtml]
+[C:/Users/Daniel/RiderProjects/Umbraco-HOP/UmbracoHOP/UmbracoHOP/Views/Search/Search.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2VhcmNoXFNlYXJjaC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Daniel/RiderProjects/UmbracoHOP/UmbracoHOP/Views/Shared/Error.cshtml]
+[C:/Users/Daniel/RiderProjects/Umbraco-HOP/UmbracoHOP/UmbracoHOP/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Daniel/RiderProjects/UmbracoHOP/UmbracoHOP/Views/Shared/_ValidationScriptsPartial.cshtml]
+[C:/Users/Daniel/RiderProjects/Umbraco-HOP/UmbracoHOP/UmbracoHOP/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Daniel/RiderProjects/UmbracoHOP/UmbracoHOP/Views/_ViewImports.cshtml]
+[C:/Users/Daniel/RiderProjects/Umbraco-HOP/UmbracoHOP/UmbracoHOP/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Daniel/RiderProjects/UmbracoHOP/UmbracoHOP/Views/_ViewStart.cshtml]
+[C:/Users/Daniel/RiderProjects/Umbraco-HOP/UmbracoHOP/UmbracoHOP/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Daniel/RiderProjects/UmbracoHOP/UmbracoHOP/Views/Shared/_Layout.cshtml]
+[C:/Users/Daniel/RiderProjects/Umbraco-HOP/UmbracoHOP/UmbracoHOP/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-e51e2fs3we
