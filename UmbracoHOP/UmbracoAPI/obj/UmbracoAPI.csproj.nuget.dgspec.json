@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Daniel\\RiderProjects\\Umbraco-HOP\\UmbracoHOP\\UmbracoHOP\\UmbracoHOP.csproj": {}
+    "C:\\Users\\Daniel\\RiderProjects\\Umbraco-HOP\\UmbracoHOP\\UmbracoAPI\\UmbracoAPI.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Daniel\\RiderProjects\\Umbraco-HOP\\UmbracoHOP\\UmbracoHOP\\UmbracoHOP.csproj": {
+    "C:\\Users\\Daniel\\RiderProjects\\Umbraco-HOP\\UmbracoHOP\\UmbracoAPI\\UmbracoAPI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Daniel\\RiderProjects\\Umbraco-HOP\\UmbracoHOP\\UmbracoHOP\\UmbracoHOP.csproj",
-        "projectName": "UmbracoHOP",
-        "projectPath": "C:\\Users\\Daniel\\RiderProjects\\Umbraco-HOP\\UmbracoHOP\\UmbracoHOP\\UmbracoHOP.csproj",
+        "projectUniqueName": "C:\\Users\\Daniel\\RiderProjects\\Umbraco-HOP\\UmbracoHOP\\UmbracoAPI\\UmbracoAPI.csproj",
+        "projectName": "UmbracoAPI",
+        "projectPath": "C:\\Users\\Daniel\\RiderProjects\\Umbraco-HOP\\UmbracoHOP\\UmbracoAPI\\UmbracoAPI.csproj",
         "packagesPath": "C:\\Users\\Daniel\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Daniel\\RiderProjects\\Umbraco-HOP\\UmbracoHOP\\UmbracoHOP\\obj\\",
+        "outputPath": "C:\\Users\\Daniel\\RiderProjects\\Umbraco-HOP\\UmbracoHOP\\UmbracoAPI\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -43,6 +43,12 @@
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
+          "dependencies": {
+            "Swashbuckle.AspNetCore": {
+              "target": "Package",
+              "version": "[6.2.3, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",

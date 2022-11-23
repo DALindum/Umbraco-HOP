@@ -14,11 +14,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Daniel\\RiderProjects\\UmbracoHOP\\UmbracoHOP\\UmbracoHOP.csproj",
+      "projectUniqueName": "C:\\Users\\Daniel\\RiderProjects\\Umbraco-HOP\\UmbracoHOP\\UmbracoHOP\\UmbracoHOP.csproj",
       "projectName": "UmbracoHOP",
-      "projectPath": "C:\\Users\\Daniel\\RiderProjects\\UmbracoHOP\\UmbracoHOP\\UmbracoHOP.csproj",
+      "projectPath": "C:\\Users\\Daniel\\RiderProjects\\Umbraco-HOP\\UmbracoHOP\\UmbracoHOP\\UmbracoHOP.csproj",
       "packagesPath": "C:\\Users\\Daniel\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Daniel\\RiderProjects\\UmbracoHOP\\UmbracoHOP\\obj\\",
+      "outputPath": "C:\\Users\\Daniel\\RiderProjects\\Umbraco-HOP\\UmbracoHOP\\UmbracoHOP\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
