@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using UmbracoAPI.Models;
+using UmbracoAPI.XML;
 
 namespace UmbracoAPI.Controllers;
 
@@ -7,6 +8,8 @@ namespace UmbracoAPI.Controllers;
 [Route("api/[controller]")]
 public class SearchController : Controller
 {
+    private XMLReader xmlReader = new XMLReader();
+    
     //Making 2 string arrays, so it will randomly add the 2 arrays content together
     private static readonly string[] Countries = new[]
     {
@@ -32,6 +35,7 @@ public class SearchController : Controller
             Instances = 1,
             fromDate = DateTime.Now,
             toDate = new DateTime(2022, 12, 31),
+            searchText = xmlReader.GetConnectionString(),
         }).ToArray();
     }
 }
