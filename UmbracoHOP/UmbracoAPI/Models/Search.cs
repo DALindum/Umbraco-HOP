@@ -2,11 +2,13 @@ namespace UmbracoAPI.Models;
 
 public class Search
 {
-    public int ID { get; set; }
+    public int PartitionKey { get; set; }
+    public int RowKey { get; set; }
+    public string Date { get; set; }
     public string Country { get; set; }
     public string City { get; set; }
     public string Continent { get; set; }
-    public string Versions { get; set; }
+    public string Version { get; set; }
     public string Packages { get; set; }
     public int Instances { get; set; }
     public DateTime fromDate { get; set; }
