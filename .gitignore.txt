@@ -225,4 +225,4 @@ AppPackages/
 # End of core ignore list, below put you custom 'per project' settings (patterns or path)
 #####
 
-UmbracoAPI/XML/XMLConnection.xml
+**/XML/XMLConnection.xml
