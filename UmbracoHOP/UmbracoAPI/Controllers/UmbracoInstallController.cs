@@ -22,7 +22,7 @@ namespace UmbracoAPI.Controllers
         {
             string currentDate = DateTime.Now.ToString("yyyyMMdd");
             string currentDateFriday = "20221125";
-            var client = new TableClient(xmlReader.GetConnectionString(), getTableName(currentDateSaturday));
+            var client = new TableClient(xmlReader.GetConnectionString(), getTableName(currentDateFriday));
             // Console.WriteLine($"Getting data for {currentDate}");
             
             var installs = client.Query<UmbracoInstall>().DistinctBy(x => x.PartitionKey);
