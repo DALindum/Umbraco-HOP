@@ -1,24 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Daniel\\RiderProjects\\Umbraco-HOP\\UmbracoHOP\\UmbracoHOP\\UmbracoHOP.csproj": {}
+    "C:\\Users\\andr3\\Documents\\GitHub\\Umbraco-HOP\\UmbracoHOP\\UmbracoHOP\\UmbracoHOP.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Daniel\\RiderProjects\\Umbraco-HOP\\UmbracoHOP\\UmbracoHOP\\UmbracoHOP.csproj": {
+    "C:\\Users\\andr3\\Documents\\GitHub\\Umbraco-HOP\\UmbracoHOP\\UmbracoHOP\\UmbracoHOP.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Daniel\\RiderProjects\\Umbraco-HOP\\UmbracoHOP\\UmbracoHOP\\UmbracoHOP.csproj",
+        "projectUniqueName": "C:\\Users\\andr3\\Documents\\GitHub\\Umbraco-HOP\\UmbracoHOP\\UmbracoHOP\\UmbracoHOP.csproj",
         "projectName": "UmbracoHOP",
-        "projectPath": "C:\\Users\\Daniel\\RiderProjects\\Umbraco-HOP\\UmbracoHOP\\UmbracoHOP\\UmbracoHOP.csproj",
-        "packagesPath": "C:\\Users\\Daniel\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Daniel\\RiderProjects\\Umbraco-HOP\\UmbracoHOP\\UmbracoHOP\\obj\\",
+        "projectPath": "C:\\Users\\andr3\\Documents\\GitHub\\Umbraco-HOP\\UmbracoHOP\\UmbracoHOP\\UmbracoHOP.csproj",
+        "packagesPath": "C:\\Users\\andr3\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\andr3\\Documents\\GitHub\\Umbraco-HOP\\UmbracoHOP\\UmbracoHOP\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\Daniel\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\andr3\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -62,7 +58,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.400\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.402\\RuntimeIdentifierGraph.json"
         }
       }
     }
