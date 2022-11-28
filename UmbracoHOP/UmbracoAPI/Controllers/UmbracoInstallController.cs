@@ -21,7 +21,7 @@ namespace UmbracoAPI.Controllers
         public IEnumerable<UmbracoInstall> Get()
         {
             string currentDate = DateTime.Now.ToString("yyyyMMdd");
-            string currentDateSaturday = "20221125";
+            string currentDateFriday = "20221125";
             var client = new TableClient(xmlReader.GetConnectionString(), getTableName(currentDateSaturday));
             // Console.WriteLine($"Getting data for {currentDate}");
             
