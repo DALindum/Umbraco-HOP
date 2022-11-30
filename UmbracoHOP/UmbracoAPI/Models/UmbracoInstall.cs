@@ -11,9 +11,10 @@ public class UmbracoInstall : ITableEntity
 
     public string RowKey { get; set; }
 
-    public string Date { get; set; }
+    public DateTime Date { get; set; }
 
-    public Package Packages { get; set; }
+    public string PackageName { get; set; }
+    public string PackageVersion { get; set; }
 
     public string Version { get; set; }
 
@@ -28,8 +29,12 @@ public class UmbracoInstall : ITableEntity
 
     public DateTimeOffset? Timestamp { get; set; }
 
-    public UmbracoInstall(string continent, string country, string city)
+    public UmbracoInstall(DateTime date, string packageName, string packageVersion, string version, string continent, string country, string city)
     {
+        this.Date = date;
+        this.PackageName = packageName;
+        this.PackageVersion = packageVersion;
+        this.Version = version;
         this.Continent = continent;
         this.Country = country;
         this.City = city;

@@ -17,7 +17,7 @@ namespace UmbracoAPI.Controllers
     [ApiController]
     public class UmbracoInstallController : ControllerBase
     {
-        private List<UmbracoInstall> umbracoInstalls;
+        private List<UmbracoInstall> umbracoInstalls = new List<UmbracoInstall>();
 
         private XMLReader xmlReader = new XMLReader();
 
@@ -44,27 +44,26 @@ namespace UmbracoAPI.Controllers
         }
 
         [HttpGet]
-        public string GetUmbracoInstalls()
+        public List<UmbracoInstall> GetAllUmbracoInstalls()
         {
             using (SqlConnection connection = new SqlConnection(@"Server=(localdb)\MSSQLLocalDB"))
             {
-                List<string> Test = new List<string>();
-                
-                SqlDataReader reader;
                 connection.Open();
 
-                string LoadVerConCoun = "SELECT Continent, Country, City FROM UmbracoInstall";
-
+                string LoadVerConCoun = "SELECT date, packagename, packageversion, version, continent, country, city FROM UmbracoInstall inner join Packages P on UmbracoInstall.PK_UmbracoInstallID = P.FK_UmbracoInstallID";
                 SqlCommand loadVerConCommand = new SqlCommand(LoadVerConCoun, connection);
-
+                
                 SqlDataReader dataReader = loadVerConCommand.ExecuteReader();
 
                 while (dataReader.Read())
                 {
-                    umbracoInstalls.Add(new UmbracoInstall((string)dataReader[0], (string)dataReader[1], (string)dataReader[2]));
+                    umbracoInstalls.Add(new UmbracoInstall((DateTime)dataReader[0],(string)dataReader[1],(string)dataReader[2],(string)dataReader[3],(string)dataReader[4],(string)dataReader[5],(string)dataReader[6]));
+                    // string date, Package package, string version, string continent, string country, string city
                 }
 
-                return umbracoInstalls.ToString();
+                connection.Close();
+
+                return umbracoInstalls;
             }
         }
 
