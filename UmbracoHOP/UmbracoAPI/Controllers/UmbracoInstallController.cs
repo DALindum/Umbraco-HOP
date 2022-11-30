@@ -13,7 +13,7 @@ using UmbracoAPI.XML;
 
 namespace UmbracoAPI.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/[controller]/[action]")]
     [ApiController]
     public class UmbracoInstallController : ControllerBase
     {
@@ -36,29 +36,91 @@ namespace UmbracoAPI.Controllers
         //     return installs;
         // }
 
-        // GET: api/UmbracoInstall/5
-        [HttpGet("{city}", Name = "Get")]
-        public string Get(string city)
-        {
-            return "";
-        }
-
+        // GET: api/GetCity/GetCountry=Country
         [HttpGet]
-        public List<UmbracoInstall> GetAllUmbracoInstalls()
+        [Route("api/GetCountry/")]
+        public List<UmbracoInstall> GetCountry(string country)
         {
-            using (SqlConnection connection = new SqlConnection(@"Server=(localdb)\MSSQLLocalDB"))
+            using (SqlConnection connection = new SqlConnection(@"Server=(localdb)\UmbracoDev"))
             {
                 connection.Open();
 
-                string LoadVerConCoun = "SELECT date, packagename, packageversion, version, continent, country, city FROM UmbracoInstall inner join Packages P on UmbracoInstall.PK_UmbracoInstallID = P.FK_UmbracoInstallID";
+                string query = $"SELECT h.Date, h.Version, h.Continent, h.Country, h.City, Packages ='['+ CONCAT('', (SELECT PackageName,PackageVersion FROM Packages c WHERE c.FK_UmbracoInstallID = h.PK_UmbracoInstallID FOR JSON PATH, WITHOUT_ARRAY_WRAPPER))+ ']' FROM UmbracoInstall h WHERE h.Country='{country}'";
+                SqlCommand queryCommand = new SqlCommand(query, connection);
+                
+                SqlDataReader dataReader = queryCommand.ExecuteReader();
+
+                while (dataReader.Read())
+                {
+                    umbracoInstalls.Add(new UmbracoInstall((DateTime)dataReader[0],(string)dataReader[1],(string)dataReader[2],(string)dataReader[3],(string)dataReader[4],(string)dataReader[5]));
+                }
+                
+                return umbracoInstalls;
+            }
+        }
+        
+        // GET: api/GetCity/GetCity=City
+        [HttpGet]
+        [Route("api/GetCity/")]
+        public List<UmbracoInstall> GetCity(string city)
+        {
+            using (SqlConnection connection = new SqlConnection(@"Server=(localdb)\UmbracoDev"))
+            {
+                connection.Open();
+        
+                string query = $"SELECT h.Date, h.Version, h.Continent, h.Country, h.City, Packages ='['+ CONCAT('', (SELECT PackageName,PackageVersion FROM Packages c WHERE c.FK_UmbracoInstallID = h.PK_UmbracoInstallID FOR JSON PATH, WITHOUT_ARRAY_WRAPPER))+ ']' FROM UmbracoInstall h WHERE h.City='{city}'";
+                SqlCommand queryCommand = new SqlCommand(query, connection);
+                
+                SqlDataReader dataReader = queryCommand.ExecuteReader();
+        
+                while (dataReader.Read())
+                {
+                    umbracoInstalls.Add(new UmbracoInstall((DateTime)dataReader[0],(string)dataReader[1],(string)dataReader[2],(string)dataReader[3],(string)dataReader[4],(string)dataReader[5]));
+                }
+                
+                return umbracoInstalls;
+            }
+        }
+
+        // GET: api/GetCity/GetContinent=Continent
+        [HttpGet]
+        [Route("api/GetContinent/")]
+        public List<UmbracoInstall> GetContinent(string continent)
+        {
+            using (SqlConnection connection = new SqlConnection(@"Server=(localdb)\UmbracoDev"))
+            {
+                connection.Open();
+        
+                string query = $"SELECT h.Date, h.Version, h.Continent, h.Country, h.City, Packages ='['+ CONCAT('', (SELECT PackageName,PackageVersion FROM Packages c WHERE c.FK_UmbracoInstallID = h.PK_UmbracoInstallID FOR JSON PATH, WITHOUT_ARRAY_WRAPPER))+ ']' FROM UmbracoInstall h WHERE h.Continent='{continent}'";
+                SqlCommand queryCommand = new SqlCommand(query, connection);
+                
+                SqlDataReader dataReader = queryCommand.ExecuteReader();
+        
+                while (dataReader.Read())
+                {
+                    umbracoInstalls.Add(new UmbracoInstall((DateTime)dataReader[0],(string)dataReader[1],(string)dataReader[2],(string)dataReader[3],(string)dataReader[4],(string)dataReader[5]));
+                }
+                
+                return umbracoInstalls;
+            }
+        }
+        
+        // Gets every instance of Umbraco
+        [HttpGet]
+        public List<UmbracoInstall> GetAllUmbracoInstalls()
+        {
+            using (SqlConnection connection = new SqlConnection(@"Server=(localdb)\UmbracoDev"))
+            {
+                connection.Open();
+
+                string LoadVerConCoun = @"SELECT h.Date, h.Version, h.Continent, h.Country, h.City, Packages ='['+ CONCAT('', (SELECT PackageName,PackageVersion FROM Packages c WHERE c.FK_UmbracoInstallID = h.PK_UmbracoInstallID FOR JSON PATH, WITHOUT_ARRAY_WRAPPER))+ ']' FROM UmbracoInstall h";
                 SqlCommand loadVerConCommand = new SqlCommand(LoadVerConCoun, connection);
                 
                 SqlDataReader dataReader = loadVerConCommand.ExecuteReader();
 
                 while (dataReader.Read())
                 {
-                    umbracoInstalls.Add(new UmbracoInstall((DateTime)dataReader[0],(string)dataReader[1],(string)dataReader[2],(string)dataReader[3],(string)dataReader[4],(string)dataReader[5],(string)dataReader[6]));
-                    // string date, Package package, string version, string continent, string country, string city
+                    umbracoInstalls.Add(new UmbracoInstall((DateTime)dataReader[0],(string)dataReader[1],(string)dataReader[2],(string)dataReader[3],(string)dataReader[4],(string)dataReader[5]));
                 }
 
                 connection.Close();
