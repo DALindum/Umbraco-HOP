@@ -38,7 +38,6 @@ namespace UmbracoAPI.Controllers
 
         // GET: api/GetPackageName/GetPackageName=Packagename
         [HttpGet]
-        [Route("api/GetPackageName/")]
         public List<UmbracoInstall> GetPackageName(string packageName)
         {
             using (SqlConnection connection = new SqlConnection(@"Server=(localdb)\UmbracoDev"))
@@ -66,10 +65,39 @@ namespace UmbracoAPI.Controllers
                 return umbracoInstalls;
             }
         }
+        
+        // GET: api/GetPackageVersion/GetPackageVersion=Packagename
+        [HttpGet]
+        public List<UmbracoInstall> GetPackageVersion(string packageName, string packageVersion)
+        {
+            using (SqlConnection connection = new SqlConnection(@"Server=(localdb)\UmbracoDev"))
+            {
+                connection.Open();
+
+                string query =
+                    $"SELECT uInstall.Date, uInstall.Version, uInstall.Continent, uInstall.Country, uInstall.City, Packages = '[' + CONCAT('', (SELECT c.PackageName, c.PackageVersion FROM Packages c WHERE c.FK_UmbracoInstallID = uInstall.PK_UmbracoInstallID AND c.PackageName = '{packageName}' AND c.PackageVersion = '{packageVersion}' FOR JSON PATH, WITHOUT_ARRAY_WRAPPER))+']' FROM UmbracoInstall uInstall";
+
+                SqlCommand queryCommand = new SqlCommand(query, connection);
+
+
+                SqlDataReader dataReader = queryCommand.ExecuteReader();
+
+                while (dataReader.Read())
+                {
+                    if (dataReader[5].ToString()!.Contains(packageName) && dataReader[5].ToString()!.Contains(packageVersion))
+                    {
+                        umbracoInstalls.Add(new UmbracoInstall((DateTime)dataReader[0], (string)dataReader[1],
+                            (string)dataReader[2], (string)dataReader[3], (string)dataReader[4],
+                            (string)dataReader[5]));
+                    }
+                }
+
+                return umbracoInstalls;
+            }
+        }
 
         // GET: api/GetUmbracoVersion/GetUmbracoVersion=UmbracoVersion
         [HttpGet]
-        [Route("api/GetUmbracoVersion/")]
         public List<UmbracoInstall> GetUmbracoVersion(string version)
         {
             using (SqlConnection connection = new SqlConnection(@"Server=(localdb)\UmbracoDev"))
@@ -96,7 +124,6 @@ namespace UmbracoAPI.Controllers
 
         // GET: api/GetCity/GetCountry=Country
         [HttpGet]
-        [Route("api/GetCountry/")]
         public List<UmbracoInstall> GetCountry(string country)
         {
             using (SqlConnection connection = new SqlConnection(@"Server=(localdb)\UmbracoDev"))
@@ -121,7 +148,6 @@ namespace UmbracoAPI.Controllers
 
         // GET: api/GetCity/GetCity=City
         [HttpGet]
-        [Route("api/GetCity/")]
         public List<UmbracoInstall> GetCity(string city)
         {
             using (SqlConnection connection = new SqlConnection(@"Server=(localdb)\UmbracoDev"))
@@ -146,7 +172,6 @@ namespace UmbracoAPI.Controllers
 
         // GET: api/GetCity/GetContinent=Continent
         [HttpGet]
-        [Route("api/GetContinent/")]
         public List<UmbracoInstall> GetContinent(string continent)
         {
             using (SqlConnection connection = new SqlConnection(@"Server=(localdb)\UmbracoDev"))
