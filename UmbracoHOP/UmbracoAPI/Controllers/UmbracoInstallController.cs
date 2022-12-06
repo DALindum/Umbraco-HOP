@@ -20,6 +20,7 @@ namespace UmbracoAPI.Controllers
         private List<UmbracoInstall> umbracoInstalls = new List<UmbracoInstall>();
 
         private XMLReader xmlReader = new XMLReader();
+        
 
         // GET: api/UmbracoInstall
         // [HttpGet]
