@@ -226,3 +226,7 @@ AppPackages/
 #####
 
 **/XML/XMLConnection.xml
+
+*.vsdx
+*.suo
+*.props
