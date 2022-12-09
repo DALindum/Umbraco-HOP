@@ -1,6 +1,6 @@
 namespace UmbracoHOP.Models;
 
-public class SearchModel
+public class UmbracoInstallsModel
 {
     public int ID { get; set; }
     public string Country { get; set; }
