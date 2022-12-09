@@ -10051,19 +10051,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\andr3\\.nuget\\packages\\": {}
+    "C:\\Users\\Daniel\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\andr3\\RiderProjects\\Umbraco-HOPp\\UmbracoHOP\\UmbracoAPI\\UmbracoAPI.csproj",
+      "projectUniqueName": "C:\\Users\\Daniel\\Desktop\\UmbracoHOP\\Umbraco-HOP\\UmbracoHOP\\UmbracoAPI\\UmbracoAPI.csproj",
       "projectName": "UmbracoAPI",
-      "projectPath": "C:\\Users\\andr3\\RiderProjects\\Umbraco-HOPp\\UmbracoHOP\\UmbracoAPI\\UmbracoAPI.csproj",
-      "packagesPath": "C:\\Users\\andr3\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\andr3\\RiderProjects\\Umbraco-HOPp\\UmbracoHOP\\UmbracoAPI\\obj\\",
+      "projectPath": "C:\\Users\\Daniel\\Desktop\\UmbracoHOP\\Umbraco-HOP\\UmbracoHOP\\UmbracoAPI\\UmbracoAPI.csproj",
+      "packagesPath": "C:\\Users\\Daniel\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Daniel\\Desktop\\UmbracoHOP\\Umbraco-HOP\\UmbracoHOP\\UmbracoAPI\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\andr3\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Daniel\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -10133,7 +10133,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.402\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.100\\RuntimeIdentifierGraph.json"
       }
     }
   }
