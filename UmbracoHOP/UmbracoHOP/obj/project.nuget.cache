@@ -1,10 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "Xss4Qg4gtltncDMU7IailtZxaIDC7qQOvibCBa3F2GFD2UD6o6vlQeXicehL/66Dpgzt/Yg/OduUOhM6uzweUA==",
+  "dgSpecHash": "B2YGonvHIsdncrQY71sWWH+Aau9Fi7vknlPybPUG54m9tTO4wFGJtG3Xk4u5j3WsV4sOvsrAb4BQpgIgKd2qnQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Daniel\\Desktop\\UmbracoHOP\\Umbraco-HOP\\UmbracoHOP\\UmbracoHOP\\UmbracoHOP.csproj",
+  "projectFilePath": "C:\\Users\\andr3\\RiderProjects\\Umbraco-HOPs\\UmbracoHOP\\UmbracoHOP\\UmbracoHOP.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\Daniel\\.nuget\\packages\\newtonsoft.json\\13.0.2\\newtonsoft.json.13.0.2.nupkg.sha512"
+    "C:\\Users\\andr3\\.nuget\\packages\\newtonsoft.json\\13.0.2\\newtonsoft.json.13.0.2.nupkg.sha512"
   ],
   "logs": []
 }

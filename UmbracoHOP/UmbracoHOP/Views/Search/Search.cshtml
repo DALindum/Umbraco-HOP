@@ -1,3 +1,7 @@
+@using Microsoft.AspNetCore.Mvc.Rendering
+@using Microsoft.AspNetCore.Mvc.TagHelpers
+@model List<UmbracoInstallsModel>?
+
 @{
     ViewData["Title"] = "Search";
 }
@@ -10,49 +14,61 @@
 </head>
 <body>
 
+
+
+@* <div class="filter_search_box"> *@
+@*     @Html.DropDownList("SearchOptions", new SelectList(Enum.GetValues(typeof(SearchOptions))), "Select Filter", new {@class= "form-control"}) *@
+@* </div> *@
 <!-- SEARCH BAR -->
-<div class="search_row">
-    <div class="search_box">
-        <select name="filter_search_box" class="filter_search_box">
-            <option class="noSearch" value=""></option>
-            <option class="Country" value="Country">Country</option>
-            <option class="City" value="City">City</option>
-            <option class="Continent" value="Continent">Continent</option>
-            <option class="Versions" value="Versions">Versions</option>
-            <option class="Packages" value="Packages">Packages</option>
-            <option class="Instances" value="Instances">Instances</option>
-        </select>
-    </div>
+@* <div class="search_box"> *@
+@* <select name="filter_search_box" class="filter_search_box"> *@
+@*     <option class="noSearch" value=""></option> *@
+@*     <option class="Country" value="Country">Country</option> *@
+@*     <option class="City" value="City">City</option> *@
+@*     <option class="Continent" value="Continent">Continent</option> *@
+@*     <option class="Versions" value="Versions">Versions</option> *@
+@*     <option class="Packages" value="Packages">Packages</option> *@
+@*     <option class="Instances" value="Instances">Instances</option> *@
+@* </select> *@
+@* </div> *@
 
-    <div class="SearchFromDateText">
-        <p>Start Date: </p>
-    </div>
+<form asp-controller="Search" asp-action="Search" >
+    <div class="search_row">
 
-    <div class="SearchFromDateBtn">
-        <input class="DateFrom" type="date">
-    </div>
+        <div class="search_box">
+            @Html.DropDownList("SearchOptions", new SelectList(Enum.GetValues(typeof(SearchOptions))), "Select Filter")
+        </div>
+
+        <div class="SearchFromDateText">
+            <p>Start Date: </p>
+        </div>
+
+        <div class="SearchFromDateBtn">
+            <input class="DateFrom" type="date">
+        </div>
 
 
-    <div class="SearchToDateText">
-        <p>End Date: </p>
-    </div>
+        <div class="SearchToDateText">
+            <p>End Date: </p>
+        </div>
 
-    <div class="SearchToDateBtn">
-        <input class="DateFrom" type="date">
-    </div>
+        <div class="SearchToDateBtn">
+            <input class="DateFrom" type="date">
+        </div>
 
-    <div class="SearchText">
-        <input class="searchTextText" type="text" placeholder="Search Text">
-    </div>
+        <div class="SearchText">
+            <input type="text" name="SearchString" value="@ViewData["SearchString"]"/>
+        </div>
 
-    <div class="SearchButton">
-        <input type="submit" value="Search"/>
-    </div>
+        <div class="SearchButton">
+            <input type="submit" value="SearchString" class="btn btn-primary"/>
+        </div>
 
-    <div class="SearchExport">
-        <input type="submit" value="Export"/>
+        <div class="SearchExport">
+            <input type="submit" value="Export"/>
+        </div>
     </div>
-</div>
+</form>
 
 <!-- INFO BOX -->
 <div class="info_box">
@@ -66,23 +82,56 @@
     <hr>
 </div>
 
-<div class="DataArea">
-    <p class="DataAreaContinent">Continent↓</p>
-    <p class="DataAreaCountry">Country↓</p>
-    <p class="DataAreaCity">City↓</p>
-    <p class="DataAreaVersion">Version↓</p>
-    <p class="DataAreaPackages">Packages↓</p>
-    <p class="DataAreaInstances">Instances↓</p>
-</div>
+<table class="table table-bordered table-striped" style="width:100%">
+    <thead>
+    <tr>
+        <th>
+            Continent
+        </th>
+        <th>
+            Country
+        </th>
+        <th>
+            City
+        </th>
+        <th>
+            Packages
+        </th>
+        <th>
+            Version
+        </th>
+        <th>
+            Date
+        </th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var obj in Model)
+    {
+        <tr>
+            <td>
+                @obj.Continent
+            </td>
+            <td>
+                @obj.Country
+            </td>
+            <td>
+                @obj.City
+            </td>
+            <td>
+                @obj.Package
+            </td>
+            <td>
+                @obj.Version
+            </td>
+            <td>
+                @obj.Date
+            </td>
+        </tr>
+    }
+    </tbody>
 
-<div class="DataAreaText">
-    <p class="DataAreaTextContinent">EU</p>
-    <p class="DataAreaTextCountry">DK</p>
-    <p class="DataAreaTextCity">Odense</p>
-    <p class="DataAreaTextVersion">10.0.0</p>
-    <p class="DataAreaTextPackages">12</p>
-    <p class="DataAreaTextInstances">1</p>
-</div>
+</table>
 
 </body>
 </html>
