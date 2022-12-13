@@ -16,9 +16,10 @@ public class SearchModel
 
 public enum SearchOptions
 {
+    SearchAll,
     Country,
     City,
     Continent,
     Version,
-    Package
+    PackageName
 }
