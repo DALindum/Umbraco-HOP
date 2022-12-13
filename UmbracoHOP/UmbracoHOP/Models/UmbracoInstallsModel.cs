@@ -1,3 +1,5 @@
+using System.Text.Json.Nodes;
+
 namespace UmbracoHOP.Models;
 
 public class UmbracoInstallsModel
@@ -6,10 +8,10 @@ public class UmbracoInstallsModel
     public string Country { get; set; }
     public string City { get; set; }
     public string Continent { get; set; }
-    public string Versions { get; set; }
-    public string Packages { get; set; }
-    public int Instances { get; set; }
-    public DateTime FromDate { get; set; }
-    public DateTime ToDate { get; set; }
-    public string Type { get; set; }
+
+    public string Version { get; set; }
+    
+    public string Package { get; set; }
+
+    public DateTime Date { get; set; }
 }
