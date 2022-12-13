@@ -100,14 +100,31 @@ namespace UmbracoAPI.Controllers
 
         // GET: api/GetUmbracoVersion/GetUmbracoVersion=UmbracoVersion
         [HttpGet]
-        public List<UmbracoInstall> GetUmbracoVersion(string version)
+        public List<UmbracoInstall> GetUmbracoVersion(string version, string? fromDate, string? toDate)
         {
             using (SqlConnection connection = new SqlConnection(@"Server=(localdb)\UmbracoDev"))
             {
                 connection.Open();
 
-                string query =
-                    $"SELECT h.Date, h.Version, h.Continent, h.Country, h.City, Packages ='['+ CONCAT('', (SELECT PackageName,PackageVersion FROM Packages c WHERE c.FK_UmbracoInstallID = h.PK_UmbracoInstallID FOR JSON PATH, WITHOUT_ARRAY_WRAPPER))+ ']' FROM UmbracoInstall h WHERE h.Version='{version}'";
+                string query = "";
+
+                if (fromDate == null)
+                {
+                    query =
+                        $"SELECT h.Date, h.Version, h.Continent, h.Country, h.City, Packages ='['+ CONCAT('', (SELECT PackageName,PackageVersion FROM Packages c WHERE c.FK_UmbracoInstallID = h.PK_UmbracoInstallID FOR JSON PATH, WITHOUT_ARRAY_WRAPPER))+ ']' FROM UmbracoInstall h WHERE h.Version='{version}'";
+                }
+                else if (toDate == null)
+                {
+                    toDate = DateTime.Now.ToString("yyyy-MM-dd");
+
+                    query =
+                        $"SELECT h.Date, h.Version, h.Continent, h.Country, h.City, Packages ='['+ CONCAT('', (SELECT PackageName,PackageVersion FROM Packages c WHERE c.FK_UmbracoInstallID = h.PK_UmbracoInstallID FOR JSON PATH, WITHOUT_ARRAY_WRAPPER))+ ']' FROM UmbracoInstall h WHERE h.Version='{version}' and h.Date BETWEEN '{fromDate}' AND '{toDate}'";
+                }
+                else
+                {
+                    query =
+                        $"SELECT h.Date, h.Version, h.Continent, h.Country, h.City, Packages ='['+ CONCAT('', (SELECT PackageName,PackageVersion FROM Packages c WHERE c.FK_UmbracoInstallID = h.PK_UmbracoInstallID FOR JSON PATH, WITHOUT_ARRAY_WRAPPER))+ ']' FROM UmbracoInstall h WHERE h.Version='{version}' and h.Date BETWEEN '{fromDate}' AND '{toDate}'";
+                }
 
                 SqlCommand queryCommand = new SqlCommand(query, connection);
 
@@ -126,14 +143,31 @@ namespace UmbracoAPI.Controllers
 
         // GET: api/GetCity/GetCountry=Country
         [HttpGet]
-        public List<UmbracoInstall> GetCountry(string country)
+        public List<UmbracoInstall> GetCountry(string country, string? fromDate, string? toDate)
         {
             using (SqlConnection connection = new SqlConnection(@"Server=(localdb)\UmbracoDev"))
             {
                 connection.Open();
 
-                string query =
-                    $"SELECT h.Date, h.Version, h.Continent, h.Country, h.City, Packages ='['+ CONCAT('', (SELECT PackageName,PackageVersion FROM Packages c WHERE c.FK_UmbracoInstallID = h.PK_UmbracoInstallID FOR JSON PATH, WITHOUT_ARRAY_WRAPPER))+ ']' FROM UmbracoInstall h WHERE h.Country='{country}'";
+                string query = "";
+                if (fromDate == null)
+                {
+                    query =
+                        $"SELECT h.Date, h.Version, h.Continent, h.Country, h.City, Packages ='['+ CONCAT('', (SELECT PackageName,PackageVersion FROM Packages c WHERE c.FK_UmbracoInstallID = h.PK_UmbracoInstallID FOR JSON PATH, WITHOUT_ARRAY_WRAPPER))+ ']' FROM UmbracoInstall h WHERE h.Country='{country}'";
+                }
+                else if (toDate == null)
+                {
+                    toDate = DateTime.Now.ToString("yyyy-MM-dd");
+
+                    query =
+                        $"SELECT h.Date, h.Version, h.Continent, h.Country, h.City, Packages ='['+ CONCAT('', (SELECT PackageName,PackageVersion FROM Packages c WHERE c.FK_UmbracoInstallID = h.PK_UmbracoInstallID FOR JSON PATH, WITHOUT_ARRAY_WRAPPER))+ ']' FROM UmbracoInstall h WHERE h.Country='{country}' and h.Date BETWEEN '{fromDate}' AND '{toDate}'";
+                }
+                else
+                {
+                    query =
+                        $"SELECT h.Date, h.Version, h.Continent, h.Country, h.City, Packages ='['+ CONCAT('', (SELECT PackageName,PackageVersion FROM Packages c WHERE c.FK_UmbracoInstallID = h.PK_UmbracoInstallID FOR JSON PATH, WITHOUT_ARRAY_WRAPPER))+ ']' FROM UmbracoInstall h WHERE h.Country='{country}' and h.Date BETWEEN '{fromDate}' AND '{toDate}'";
+                }
+
                 SqlCommand queryCommand = new SqlCommand(query, connection);
 
                 SqlDataReader dataReader = queryCommand.ExecuteReader();
@@ -150,14 +184,31 @@ namespace UmbracoAPI.Controllers
 
         // GET: api/GetCity/GetCity=City
         [HttpGet]
-        public List<UmbracoInstall> GetCity(string city)
+        public List<UmbracoInstall> GetCity(string city, string? fromDate, string? toDate)
         {
             using (SqlConnection connection = new SqlConnection(@"Server=(localdb)\UmbracoDev"))
             {
                 connection.Open();
 
-                string query =
-                    $"SELECT h.Date, h.Version, h.Continent, h.Country, h.City, Packages ='['+ CONCAT('', (SELECT PackageName,PackageVersion FROM Packages c WHERE c.FK_UmbracoInstallID = h.PK_UmbracoInstallID FOR JSON PATH, WITHOUT_ARRAY_WRAPPER))+ ']' FROM UmbracoInstall h WHERE h.City='{city}'";
+                string query = "";
+
+                if (fromDate == null)
+                {
+                    query =
+                        $"SELECT h.Date, h.Version, h.Continent, h.Country, h.City, Packages ='['+ CONCAT('', (SELECT PackageName,PackageVersion FROM Packages c WHERE c.FK_UmbracoInstallID = h.PK_UmbracoInstallID FOR JSON PATH, WITHOUT_ARRAY_WRAPPER))+ ']' FROM UmbracoInstall h WHERE h.City='{city}'";
+                }
+                else if (toDate == null)
+                {
+                    toDate = DateTime.Now.ToString("yyyy-MM-dd");
+                    query =
+                        $"SELECT h.Date, h.Version, h.Continent, h.Country, h.City, Packages ='['+ CONCAT('', (SELECT PackageName,PackageVersion FROM Packages c WHERE c.FK_UmbracoInstallID = h.PK_UmbracoInstallID FOR JSON PATH, WITHOUT_ARRAY_WRAPPER))+ ']' FROM UmbracoInstall h WHERE h.City='{city}' and h.Date BETWEEN '{fromDate}' AND '{toDate}'";
+                }
+                else
+                {
+                    query =
+                        $"SELECT h.Date, h.Version, h.Continent, h.Country, h.City, Packages ='['+ CONCAT('', (SELECT PackageName,PackageVersion FROM Packages c WHERE c.FK_UmbracoInstallID = h.PK_UmbracoInstallID FOR JSON PATH, WITHOUT_ARRAY_WRAPPER))+ ']' FROM UmbracoInstall h WHERE h.City='{city}' and h.Date BETWEEN '{fromDate}' AND '{toDate}'";
+                }
+
                 SqlCommand queryCommand = new SqlCommand(query, connection);
 
                 SqlDataReader dataReader = queryCommand.ExecuteReader();
@@ -211,19 +262,36 @@ namespace UmbracoAPI.Controllers
             }
         }
 
-        // Gets every instance of Umbraco
+        // Gets every instance of Umbraco where you can search in a specific span of time.
         [HttpGet]
-        public List<UmbracoInstall> GetAllUmbracoInstalls()
+        public List<UmbracoInstall> GetAllUmbracoInstalls(string? fromDate, string? toDate)
         {
             using (SqlConnection connection = new SqlConnection(@"Server=(localdb)\UmbracoDev"))
             {
                 connection.Open();
 
-                string LoadVerConCoun =
-                    @"SELECT h.Date, h.Version, h.Continent, h.Country, h.City, Packages ='['+ CONCAT('', (SELECT PackageName,PackageVersion FROM Packages c WHERE c.FK_UmbracoInstallID = h.PK_UmbracoInstallID FOR JSON PATH, WITHOUT_ARRAY_WRAPPER))+ ']' FROM UmbracoInstall h";
-                SqlCommand loadVerConCommand = new SqlCommand(LoadVerConCoun, connection);
+                string query = "";
 
-                SqlDataReader dataReader = loadVerConCommand.ExecuteReader();
+                if (fromDate == null)
+                {
+                    query =
+                        $"SELECT h.Date, h.Version, h.Continent, h.Country, h.City, Packages ='['+ CONCAT('', (SELECT PackageName,PackageVersion FROM Packages c WHERE c.FK_UmbracoInstallID = h.PK_UmbracoInstallID FOR JSON PATH, WITHOUT_ARRAY_WRAPPER))+ ']' FROM UmbracoInstall h";
+                }
+                else if (toDate == null)
+                {
+                    toDate = DateTime.Now.ToString("yyyy-MM-dd");
+                    query =
+                        $"SELECT h.Date, h.Version, h.Continent, h.Country, h.City, Packages ='['+ CONCAT('', (SELECT PackageName,PackageVersion FROM Packages c WHERE c.FK_UmbracoInstallID = h.PK_UmbracoInstallID FOR JSON PATH, WITHOUT_ARRAY_WRAPPER))+ ']' FROM UmbracoInstall h WHERE h.Date between '{fromDate}' and '{toDate}'";
+                }
+                else
+                {
+                    query =
+                        $"SELECT h.Date, h.Version, h.Continent, h.Country, h.City, Packages ='['+ CONCAT('', (SELECT PackageName,PackageVersion FROM Packages c WHERE c.FK_UmbracoInstallID = h.PK_UmbracoInstallID FOR JSON PATH, WITHOUT_ARRAY_WRAPPER))+ ']' FROM UmbracoInstall h WHERE h.Date between '{fromDate}' and '{toDate}'";
+                }
+
+                SqlCommand queryCommand = new SqlCommand(query, connection);
+
+                SqlDataReader dataReader = queryCommand.ExecuteReader();
 
                 while (dataReader.Read())
                 {
