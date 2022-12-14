@@ -12,41 +12,61 @@ public class SearchController : Controller
     [HttpGet]
     public async Task<IActionResult> Search()
     {
-        var normalSearchPage = await ApiCaller("api/UmbracoInstall/GetAllUmbracoInstalls", "");
-        
+        var normalSearchPage = await ApiCaller("api/UmbracoInstall/GetAllUmbracoInstalls");
+
         return View(normalSearchPage);
     }
-    
-    public async Task<ActionResult> Search(IFormCollection formCollection, string searchString)
+
+    public async Task<ActionResult> Search(IFormCollection formCollection)
     {
+        // ViewData["SearchString"] = searchString;
+        var searchString = formCollection["SearchString"].ToString();
         var searchOption = formCollection["SearchOptions"].ToString();
-        ViewData["SearchString"] = searchString;
+        var fromDate = formCollection["FromDate"].ToString();
+        var toDate = formCollection["ToDate"].ToString();
         List<UmbracoInstallsModel>? searchedOption = null;
-    
+
         switch (searchOption)
         {
+            case "SearchAll":
+                searchedOption =
+                    await ApiCaller($"api/UmbracoInstall/GetAllUmbracoInstalls?fromDate={fromDate}&toDate={toDate}");
+                break;
             case "Country":
-                searchedOption = await ApiCaller("api/UmbracoInstall/GetCountry?country=", searchString);
+                searchedOption =
+                    await ApiCaller(
+                        $"api/UmbracoInstall/GetCountry?country={searchString}&fromDate={fromDate}&toDate={toDate}");
                 break;
             case "City":
-                searchedOption = await ApiCaller("api/UmbracoInstall/GetCity?city=", searchString);
+                searchedOption =
+                    await ApiCaller(
+                        $"api/UmbracoInstall/GetCity?city={searchString}&fromDate={fromDate}&toDate={toDate}");
                 break;
             case "Continent":
-                searchedOption = await ApiCaller("api/UmbracoInstall/GetContinent?continent=", searchString);
+                searchedOption =
+                    await ApiCaller(
+                        $"api/UmbracoInstall/GetContinent?continent={searchString}&fromDate={fromDate}&toDate={toDate}");
                 break;
             case "Version":
-                searchedOption = await ApiCaller("api/UmbracoInstall/GetUmbracoVersion?version=", searchString);
+                searchedOption =
+                    await ApiCaller(
+                        $"api/UmbracoInstall/GetUmbracoVersion?version={searchString}&fromDate={fromDate}&toDate={toDate}");
                 break;
-            case "Package":
-                // Lidt for tricky
+            case "PackageName":
+                searchedOption =
+                    await ApiCaller(
+                        $"api/UmbracoInstall/GetPackageName?packageName={searchString}&fromDate={fromDate}&toDate{toDate}");
                 break;
         }
-        
+
+        ViewBag.TotalInstances = searchedOption?.Count ?? 0;
+        ViewBag.SelectedFilter = searchOption ?? "Nothing";
+
         return View(searchedOption);
     }
 
 
-    private async Task<List<UmbracoInstallsModel>?> ApiCaller(string apiAction, string search)
+    private async Task<List<UmbracoInstallsModel>?> ApiCaller(string apiAction)
     {
         var umbracoInstallsInfo = new List<UmbracoInstallsModel>();
 
@@ -57,20 +77,15 @@ public class SearchController : Controller
 
             client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
 
-            HttpResponseMessage response = await client.GetAsync(apiAction + search);
+            HttpResponseMessage response = await client.GetAsync(apiAction);
 
             if (response.IsSuccessStatusCode)
             {
                 var umbracoInstallsResponse = response.Content.ReadAsStringAsync().Result;
-
                 umbracoInstallsInfo =
                     JsonConvert.DeserializeObject<List<UmbracoInstallsModel>>(umbracoInstallsResponse);
             }
 
-            // foreach (var package in umbracoInstallsInfo)
-            // {
-            //     var jsonResult = (Json(package.Package));
-            // }
             return umbracoInstallsInfo;
         }
     }

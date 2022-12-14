@@ -36,7 +36,7 @@
     <div class="search_row">
 
         <div class="search_box">
-            @Html.DropDownList("SearchOptions", new SelectList(Enum.GetValues(typeof(SearchOptions))), "Select Filter")
+            @Html.DropDownList("SearchOptions", new SelectList(Enum.GetValues(typeof(SearchOptions)))) 
         </div>
 
         <div class="SearchFromDateText">
@@ -44,20 +44,19 @@
         </div>
 
         <div class="SearchFromDateBtn">
-            <input class="DateFrom" type="date">
+            <input class="DateFrom" type="date" name="FromDate">
         </div>
-
-
+        
         <div class="SearchToDateText">
             <p>End Date: </p>
         </div>
 
         <div class="SearchToDateBtn">
-            <input class="DateFrom" type="date">
+            <input class="DateFrom" type="date" name="ToDate">
         </div>
 
         <div class="SearchText">
-            <input type="text" name="SearchString" value="@ViewData["SearchString"]"/>
+            <input type="text" name="SearchString"/>
         </div>
 
         <div class="SearchButton">
@@ -73,8 +72,9 @@
 <!-- INFO BOX -->
 <div class="info_box">
     <div class="box">
-        <h2>Total Instances</h2>
-        <hr>
+        <h2>Total @ViewBag.SelectedFilter</h2>
+        <hr> 
+        <h1>@ViewBag.TotalInstances</h1>
     </div>
 </div>
 
@@ -125,7 +125,7 @@
                 @obj.Version
             </td>
             <td>
-                @obj.Date
+                @obj.Date.ToString("yyyy-MM-dd")
             </td>
         </tr>
     }
