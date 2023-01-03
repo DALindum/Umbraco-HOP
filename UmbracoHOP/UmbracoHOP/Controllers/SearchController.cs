@@ -66,6 +66,14 @@ public class SearchController : Controller
     }
 
 
+    public IActionResult ExportToCsv()
+    {
+
+
+        return RedirectToAction("Search");
+    }
+
+
     private async Task<List<UmbracoInstallsModel>?> ApiCaller(string apiAction)
     {
         var umbracoInstallsInfo = new List<UmbracoInstallsModel>();
