@@ -139,3 +139,11 @@ C:\Users\andr3\RiderProjects\Umbraco-HOPs\UmbracoHOP\UmbracoHOP\obj\Debug\net6.0
 C:\Users\andr3\RiderProjects\Umbraco-HOPs\UmbracoHOP\UmbracoHOP\obj\Debug\net6.0\UmbracoHOP.pdb
 C:\Users\andr3\RiderProjects\Umbraco-HOPs\UmbracoHOP\UmbracoHOP\obj\Debug\net6.0\UmbracoHOP.genruntimeconfig.cache
 C:\Users\andr3\RiderProjects\Umbraco-HOPs\UmbracoHOP\UmbracoHOP\obj\Debug\net6.0\ref\UmbracoHOP.dll
+C:\Users\Daniel\RiderProjects\Umbraco-HOP\UmbracoHOP\UmbracoHOP\bin\Debug\net6.0\Newtonsoft.Json.dll
+C:\Users\Daniel\RiderProjects\Umbraco-HOP\UmbracoHOP\UmbracoHOP\bin\Debug\net6.0\System.Data.SqlClient.dll
+C:\Users\Daniel\RiderProjects\Umbraco-HOP\UmbracoHOP\UmbracoHOP\bin\Debug\net6.0\runtimes\win-arm64\native\sni.dll
+C:\Users\Daniel\RiderProjects\Umbraco-HOP\UmbracoHOP\UmbracoHOP\bin\Debug\net6.0\runtimes\win-x64\native\sni.dll
+C:\Users\Daniel\RiderProjects\Umbraco-HOP\UmbracoHOP\UmbracoHOP\bin\Debug\net6.0\runtimes\win-x86\native\sni.dll
+C:\Users\Daniel\RiderProjects\Umbraco-HOP\UmbracoHOP\UmbracoHOP\bin\Debug\net6.0\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
+C:\Users\Daniel\RiderProjects\Umbraco-HOP\UmbracoHOP\UmbracoHOP\bin\Debug\net6.0\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
+C:\Users\Daniel\RiderProjects\Umbraco-HOP\UmbracoHOP\UmbracoHOP\obj\Debug\net6.0\UmbracoHOP.csproj.CopyComplete
