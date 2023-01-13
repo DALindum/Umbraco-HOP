@@ -24,9 +24,9 @@ public class LoginController : Controller
         {
             using (SqlConnection connection = new SqlConnection(@"Server=(localdb)\UmbracoDev"))
             {
-                string queryLog = "SELECT username, password FROM users WHERE username = @username and password = @password";
+                string query = $"SELECT username, password FROM users WHERE username = {login.Username} and password = {login.Password}";
             
-                using (SqlCommand command = new SqlCommand(queryLog, connection))
+                using (SqlCommand command = new SqlCommand(query, connection))
                 {
                     command.Parameters.AddWithValue("@username", login.Username);
                     command.Parameters.AddWithValue("@password", login.Password);
