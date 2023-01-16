@@ -1,6 +1,6 @@
 @using Microsoft.AspNetCore.Mvc.Rendering
 @using Microsoft.AspNetCore.Mvc.TagHelpers
-@model List<UmbracoInstallsModel>?
+@model List<UmbracoInstallsModel>
 
 @{
     ViewData["Title"] = "Search";
@@ -51,12 +51,13 @@
     </div>
 </form>
 
-<form asp-controller="Search" asp-action="ExportToCsv">
+<a asp-controller="Search" asp-action="ExportToCsv" >
+    
     <div class="SearchExport">
-        <input type="submit" value="Export"/>
+        <input type="submit" value="@Model.Count"  multiple="@Model"  list="@Model" name="Export" />
     </div>
 
-</form>
+</a>
 <!-- INFO BOX -->
 <div class="info_box">
     <div class="box">

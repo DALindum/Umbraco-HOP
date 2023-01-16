@@ -14,6 +14,8 @@ public class SearchController : Controller
     {
         var normalSearchPage = await ApiCaller("api/UmbracoInstall/GetAllUmbracoInstalls");
 
+        ViewBag.TotalInstances = normalSearchPage?.Count ?? 0;
+
         return View(normalSearchPage);
     }
 
@@ -61,14 +63,18 @@ public class SearchController : Controller
 
         ViewBag.TotalInstances = searchedOption?.Count ?? 0;
         ViewBag.SelectedFilter = searchOption ?? "Nothing";
-
+        
+        
         return View(searchedOption);
     }
 
 
-    public IActionResult ExportToCsv()
+    public IActionResult ExportToCsv(IFormCollection formCollection)
     {
-
+        var export = formCollection["Export"];
+        string test;
+        
+       
 
         return RedirectToAction("Search");
     }
