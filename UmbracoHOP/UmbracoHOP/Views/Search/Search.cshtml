@@ -1,6 +1,6 @@
 @using Microsoft.AspNetCore.Mvc.Rendering
 @using Microsoft.AspNetCore.Mvc.TagHelpers
-@model List<UmbracoInstallsModel>?
+@model List<UmbracoInstallsModel>
 
 @{
     ViewData["Title"] = "Search";
@@ -16,27 +16,12 @@
 
 
 
-@* <div class="filter_search_box"> *@
-@*     @Html.DropDownList("SearchOptions", new SelectList(Enum.GetValues(typeof(SearchOptions))), "Select Filter", new {@class= "form-control"}) *@
-@* </div> *@
-<!-- SEARCH BAR -->
-@* <div class="search_box"> *@
-@* <select name="filter_search_box" class="filter_search_box"> *@
-@*     <option class="noSearch" value=""></option> *@
-@*     <option class="Country" value="Country">Country</option> *@
-@*     <option class="City" value="City">City</option> *@
-@*     <option class="Continent" value="Continent">Continent</option> *@
-@*     <option class="Versions" value="Versions">Versions</option> *@
-@*     <option class="Packages" value="Packages">Packages</option> *@
-@*     <option class="Instances" value="Instances">Instances</option> *@
-@* </select> *@
-@* </div> *@
 
-<form asp-controller="Search" asp-action="Search" >
+<form asp-controller="Search" asp-action="Search">
     <div class="search_row">
 
         <div class="search_box">
-            @Html.DropDownList("SearchOptions", new SelectList(Enum.GetValues(typeof(SearchOptions)))) 
+            @Html.DropDownList("SearchOptions", new SelectList(Enum.GetValues(typeof(SearchOptions))))
         </div>
 
         <div class="SearchFromDateText">
@@ -46,7 +31,7 @@
         <div class="SearchFromDateBtn">
             <input class="DateFrom" type="date" name="FromDate">
         </div>
-        
+
         <div class="SearchToDateText">
             <p>End Date: </p>
         </div>
@@ -60,20 +45,24 @@
         </div>
 
         <div class="SearchButton">
-            <input type="submit" value="SearchString" class="btn btn-primary"/>
+            <input type="submit" value="Search" class="btn btn-primary"/>
         </div>
 
-        <div class="SearchExport">
-            <input type="submit" value="Export"/>
-        </div>
     </div>
 </form>
 
+<a asp-controller="Search" asp-action="ExportToCsv" >
+    
+    <div class="SearchExport">
+        <input type="submit" value="@Model.Count"  multiple="@Model"  list="@Model" name="Export" />
+    </div>
+
+</a>
 <!-- INFO BOX -->
 <div class="info_box">
     <div class="box">
         <h2>Total @ViewBag.SelectedFilter</h2>
-        <hr> 
+        <hr>
         <h1>@ViewBag.TotalInstances</h1>
     </div>
 </div>
