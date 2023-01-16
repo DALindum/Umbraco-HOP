@@ -16,4 +16,8 @@
       <PackageReference Include="System.Data.SqlClient" Version="4.8.5" />
     </ItemGroup>
 
+    <ItemGroup>
+      <_ContentIncludedByDefault Remove="Views\Profile\Profile.cshtml" />
+    </ItemGroup>
+
 </Project>

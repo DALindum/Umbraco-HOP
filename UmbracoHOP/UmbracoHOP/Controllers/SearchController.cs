@@ -8,6 +8,8 @@ namespace UmbracoHOP.Controllers;
 public class SearchController : Controller
 {
     private const string ApiUrl = "https://localhost:7209/";
+    
+    private List<UmbracoInstallsModel> exportList = new ();
 
     [HttpGet]
     public async Task<IActionResult> Search()
@@ -26,6 +28,7 @@ public class SearchController : Controller
         var searchOption = formCollection["SearchOptions"].ToString();
         var fromDate = formCollection["FromDate"].ToString();
         var toDate = formCollection["ToDate"].ToString();
+
         List<UmbracoInstallsModel>? searchedOption = null;
 
         switch (searchOption)

@@ -30,7 +30,9 @@
                 <input asp-for="Password" class="form-control" type="password" placeholder="Password">
                 <span asp-validation-for="Password" class="text-danger"></span>
             </div>
-
+    
+            <a style="color:red">@ViewBag.ErrorMessage</a>
+            
             <div class="loginButton">
                 <button asp-controller="Login">Login</button>
             </div>

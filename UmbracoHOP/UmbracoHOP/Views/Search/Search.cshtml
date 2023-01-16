@@ -47,14 +47,14 @@
         <div class="SearchButton">
             <input type="submit" value="Search" class="btn btn-primary"/>
         </div>
-
+        
     </div>
 </form>
 
 <a asp-controller="Search" asp-action="ExportToCsv" >
     
     <div class="SearchExport">
-        <input type="submit" value="@Model.Count"  multiple="@Model"  list="@Model" name="Export" />
+        <input type="submit" value="@Model.Count" name="Export" />
     </div>
 
 </a>
