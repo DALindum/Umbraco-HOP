@@ -14,9 +14,6 @@
 </head>
 <body>
 
-
-
-
 <form asp-controller="Search" asp-action="Search">
     <div class="search_row">
 
@@ -45,19 +42,15 @@
         </div>
 
         <div class="SearchButton">
-            <input type="submit" value="Search" class="btn btn-primary"/>
+            <input type="submit" name="SearchButton" value="Search" class="btn btn-primary"/>
         </div>
 
+        <div class="SearchExport">
+            <input type="submit" value="Export" name="ExportButton"/>
+        </div>
     </div>
 </form>
 
-<a asp-controller="Search" asp-action="ExportToCsv" >
-    
-    <div class="SearchExport">
-        <input type="submit" value="@Model.Count"  multiple="@Model"  list="@Model" name="Export" />
-    </div>
-
-</a>
 <!-- INFO BOX -->
 <div class="info_box">
     <div class="box">
@@ -89,7 +82,7 @@
         <th>
             Version
         </th>
-        <th>
+        <th style="width: 8%">
             Date
         </th>
     </tr>

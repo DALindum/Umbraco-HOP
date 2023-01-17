@@ -1,3 +1,4 @@
+using System.Data;
 using System.Net.Http.Headers;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
@@ -8,7 +9,7 @@ namespace UmbracoHOP.Controllers;
 public class SearchController : Controller
 {
     private const string ApiUrl = "https://localhost:7209/";
-
+    
     [HttpGet]
     public async Task<IActionResult> Search()
     {
@@ -18,14 +19,15 @@ public class SearchController : Controller
 
         return View(normalSearchPage);
     }
-
-    public async Task<ActionResult> Search(IFormCollection formCollection)
+    
+    public async Task<IActionResult> Search(IFormCollection formCollection)
     {
-        // ViewData["SearchString"] = searchString;
         var searchString = formCollection["SearchString"].ToString();
         var searchOption = formCollection["SearchOptions"].ToString();
         var fromDate = formCollection["FromDate"].ToString();
         var toDate = formCollection["ToDate"].ToString();
+        var exportButton = formCollection["ExportButton"].Count();
+
         List<UmbracoInstallsModel>? searchedOption = null;
 
         switch (searchOption)
@@ -61,24 +63,45 @@ public class SearchController : Controller
                 break;
         }
 
+        if (exportButton != 0)
+        {
+            string csv = string.Concat(searchedOption.Select(
+                model =>
+                    $"{model.Continent},{model.Country},{model.City},{model.Package},{model.Version},{model.Date}\n"));
+
+            return File(new System.Text.UTF8Encoding().GetBytes(csv), "text/csv", "UmbracoInstances.csv");
+            
+            // Mulig løsning
+            // DataTable table = new DataTable("Instances");
+            //
+            // table.Columns.Add("Continent", typeof(string));
+            // table.Columns.Add("Country", typeof(string));
+            // table.Columns.Add("City", typeof(string));
+            // table.Columns.Add("Package", typeof(string));
+            // table.Columns.Add("Version", typeof(string));
+            // table.Columns.Add("Date", typeof(string));
+            //
+            //
+            // foreach (var instance in searchedOption)
+            // {
+            //
+            //     DataRow row = table.NewRow();
+            //     row["Continent"] = instance.Continent;
+            //     row["Country"] = instance.Country;
+            //     row["City"] = instance.City;
+            //     row["Package"] = instance.Package;
+            //     row["Version"] = instance.Version;
+            //     row["Date"] = instance.Date;
+            //
+            //     table.Rows.Add(row);
+            // }
+        }
         ViewBag.TotalInstances = searchedOption?.Count ?? 0;
         ViewBag.SelectedFilter = searchOption ?? "Nothing";
-        
-        
+
+
         return View(searchedOption);
     }
-
-
-    public IActionResult ExportToCsv(IFormCollection formCollection)
-    {
-        var export = formCollection["Export"];
-        string test;
-        
-       
-
-        return RedirectToAction("Search");
-    }
-
 
     private async Task<List<UmbracoInstallsModel>?> ApiCaller(string apiAction)
     {

@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "dbnrTK0RuB5tn3quTSn09MMD6fk6bbaYHYGGnsGbICY=",
+  "Hash": "Ure6Kw4b8k6R7ZHpU3LzxVBQUQ7B8Lz9rhf2vh0/szs=",
   "Source": "UmbracoHOP",
   "BasePath": "_content/UmbracoHOP",
   "Mode": "Default",
@@ -151,23 +151,6 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\favicon.ico"
-    },
-    {
-      "Identity": "C:\\Users\\andr3\\RiderProjects\\Umbraco-HOPp\\UmbracoHOP\\UmbracoHOP\\wwwroot\\Images\\profile_icon.png",
-      "SourceId": "UmbracoHOP",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\andr3\\RiderProjects\\Umbraco-HOPp\\UmbracoHOP\\UmbracoHOP\\wwwroot\\",
-      "BasePath": "_content/UmbracoHOP",
-      "RelativePath": "Images/profile_icon.png",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\Images\\profile_icon.png"
     },
     {
       "Identity": "C:\\Users\\andr3\\RiderProjects\\Umbraco-HOPp\\UmbracoHOP\\UmbracoHOP\\wwwroot\\Images\\umbraco_logo.png",
